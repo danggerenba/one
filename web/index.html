@@ -13,6 +13,59 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="referrer" content="origin-when-cross-origin" />
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        
+
+        #password-modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /*background-color: rgba(0, 0, 0, 0.8);*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+
+        #password-modal input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #password-modal input[type="password"]::placeholder {
+            color: #999;
+        }
+
+        #password-modal button {
+            padding: 10px;
+            font-size: 16px;
+            height: 36px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 14px;
+        }
+
+        #password-modal button:hover {
+            background-color: #45a049;
+        }
+
+       /* iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }*/
+    </style>
   <title>BingAI</title>
   <!-- <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
   <script>
@@ -45,6 +98,35 @@
 <link rel="manifest" href="/web/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/web/registerSW.js"></script></head>
 
 <body>
+
+<div id="andex-container">
+        <div id="password-modal">
+            <input  type="password" id="password-input" placeholder="请输入密码">
+            <button onclick="validatePassword()">确定</button>
+        </div>
+        <!-- <iframe src="https://bingai.kuaiji.life/" id="admin-iframe"></iframe> -->
+    </div>
+
+    <script>
+        function validatePassword() {
+            var passwordInput = document.getElementById("password-input");
+            var password = passwordInput.value;
+
+            // Check if the entered password matches the expected password
+            if (password === "2023") {
+                var passwordModal = document.getElementById("password-modal");
+                var adminIframe = document.getElementById("admin-iframe");
+
+                // Remove the password modal and show the iframe
+                passwordModal.style.display = "none";
+                adminIframe.style.display = "block";
+            } else {
+                // Display an error message or take appropriate action for an incorrect password
+                alert("密码不对");
+            }
+        }
+    </script>
+    
   <div id="b_sydHeadBg"></div>
   <div id="b_sydConvCont" _iid="SERP.5029">
     <div id="b_sydtoporpole" class="b_sydConvAnsTest"></div>
